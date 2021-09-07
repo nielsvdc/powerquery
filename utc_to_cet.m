@@ -12,9 +12,9 @@ let
 
     isSummerTime = (date = lastSundayOfMarch and time >= #time(2,0,0)) or
 		(date > lastSundayOfMarch and date < lastSundayOfOctober) or 
-		(date = lastSundayOfOctober and time >= #time(3,0,0)),
+		(date = lastSundayOfOctober and time <= #time(2,0,0)),
 
-    timeZone = (1 - Number.From(isSummerTime))*-1,
+    timeZone = (1 + Number.From(isSummerTime)),
 
     CET = 
         DateTime.From(date) 
